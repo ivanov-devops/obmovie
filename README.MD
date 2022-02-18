@@ -124,6 +124,7 @@ In `kubernetes` folder are two types of deployment - one `app-deployment` for re
 #### Pipeline stages.
 For the workflow I used these stages and the respectful commands
 All stages are added in the `Makefile`
+
 0. Add local docker to minikube - run `make docker-load`
 1. Image build - run `make app-build`
 2. Image Load - run `make app-load`
