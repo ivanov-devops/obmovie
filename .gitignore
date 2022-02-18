@@ -1,0 +1,8 @@
+.idea/
+.DS_Store
+obmovies/Pipfile*
+.cache
+obmovies/minikube/minikube-darwin-amd64
+obmovies/obmovies/__pycache__/
+obmovies/obmovies/api/__pycache__/
+obmovies/tests/__pycache__/

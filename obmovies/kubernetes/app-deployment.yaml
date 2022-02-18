@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: obmovies
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: obmovies
+  name: obmovies-app-deploy
+  labels:
+    app: obmovies-app
+spec:
+  selector:
+    matchLabels:
+      app: obmovies-app
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: obmovies-app
+    spec:
+      containers:
+      - name: obmovies-app
+        image: obmovies_app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: obmovies
+  name: obmovies-app-svc
+  labels:
+    app: obmovies-app
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    name: obmovies-app-lb
+  selector:
+    app: obmovies-app
+  type: LoadBalancer
