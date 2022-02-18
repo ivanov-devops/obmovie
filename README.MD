@@ -138,4 +138,4 @@ This task is unclear thats why I'm using the simplest methods with `Makefile`
 For automation purpose is added one command which runs them. `make app-set-dpl ` is using deployment `make app-set-ds` is using the daemonset.
 
 Task 4 - codify the creation of minikube
-simple sh script in `minikube` folder. To install and start run `./prepare.sh`
+simple sh script in `minikube` folder. To install and start run `./prepare-linux.sh` for Linux or `./prepare-mac.sh`
