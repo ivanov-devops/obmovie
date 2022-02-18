@@ -122,11 +122,12 @@ Created Dockerfile.
 In `kubernetes` folder are two types of deployment - one `app-deployment` for regular deployment and service. The second is `daemonset`.
 
 #### Pipeline stages.
-For the workflow I used these stages.
-1. Image build
-2. Image Load
-3. Image deployment and creating service
-4. Destroy and remove the Service
+For the workflow I used these stages and the respectful commands
+0. Add local docker to minikube - run `make docker-load`
+1. Image build - run `make app-build`
+2. Image Load - run `make app-load`
+3. Image deployment and creating service - run `make app-set-ds` for daemonset or `app-set-dpl` for deployment and service
+4. Destroy and remove the Service - run `make app-destroy-ds` - for the daemonset or `make app-destroy-dpl` for deployment and service
 5. Tests
 All stages are added in the `Makefile`
 From the console shell just type `make <command>`

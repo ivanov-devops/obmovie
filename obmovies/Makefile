@@ -9,17 +9,21 @@ app-build: Dockerfile
 app-load:
 	 minikube image load obmovies_app:latest
 
-# deploy to minikube
+# deploy to minikube deployment version
 app-deploy:
 	kubectl apply  -f kubernetes/app-deployment.yaml
 
-# delete the app from minikube
-app-destroy:
-	kubectl delete  -f kubernetes/app-deployment.yaml
-
-	# deploy to minikube daemonset
+# deploy to minikube daemonset version
 app-ds:
 	kubectl apply  -f kubernetes/app-daemonset.yaml
+
+# delete the app daemonset from minikube
+app-destroy-ds:
+	kubectl delete  -f kubernetes/app-daemonset.yaml
+
+# delete the app deployment from minikube
+app-destroy-dpl:
+	kubectl delete  -f kubernetes/app-deployment.yaml
 
 # build and deploy in one command with deployment and service
 app-set-dpl:
